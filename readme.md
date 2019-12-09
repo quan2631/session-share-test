@@ -1,6 +1,6 @@
 # 1. 背景
 ```
-  本工程集成了springboot2和session，第一验证有效期，第二验证session共享。仅供学习交流！
+  本工程集成了springboot2和session，第一验证有效期，第二验证session共享。仅供学习交流。
 ```
 # 2. 需知
 ```
@@ -13,23 +13,22 @@ http://localhost:10041/setSession?value=quanxin
 返回：
 a6c3102b-3054-4f97-8682-4a2dd46d8357
 
-第二部：服务器端获取session（有效期内）
+第二部：获取session（有效期内）
 http://localhost:10041/getSession
 
 {"sessionId":"a6c3102b-3054-4f97-8682-4a2dd46d8357","value":"quanxin"}
 
-第三部：服务器端获取session（有效期外）
+第三部：获取session（有效期外）
 http://localhost:10041/getSession
 
 {"sessionId":"51451e34-0319-40e8-b2bf-e8d64b593cc0","value":null}
 
 ```
-结论：可以通过获取session接口，如果有效期内，则返回的session与登陆一致；如果返回不一致，则超出有效期。
+结论：可以调用获取session的接口，如果有效期内，则返回的session与登陆一致；如果返回不一致，则超出有效期。
 # 4. 超时时间设置
 ```
 server.servlet.session.timeout=PT30S
 控制台打印：
-setSession maxInactiveInterval: 30
 setSession maxInactiveInterval: 30
 getSession maxInactiveInterval: 30
 ```
